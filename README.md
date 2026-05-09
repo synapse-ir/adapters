@@ -1,4 +1,4 @@
-# SYNAPSE Adapters
+﻿# SYNAPSE Adapters
 
 Community adapter collection for the SYNAPSE canonical IR ecosystem. Each adapter in this repository connects a real model to the ecosystem — write it once, interoperate with everything.
 
@@ -9,6 +9,7 @@ Community adapter collection for the SYNAPSE canonical IR ecosystem. Each adapte
 | [NER BERT](ner_bert_adapter.py) | dslim/bert-base-NER | extract | general, legal | Python | MIT |
 | [OpenAI Classifier](openai-classifier.ts) | openai/gpt-4o-mini | classify | general | TypeScript | MIT |
 | [JSL Clinical NER](ner_clinical_adapter.py) | johnsnowlabs/ner_clinical | extract | medical | Python | MIT (adapter) — requires John Snow Labs Healthcare NLP license |
+| [Docling](docling_adapter.py) | docling-project/docling | extract | document, general | Python | MIT |
 
 ## Contribute an adapter
 
@@ -22,14 +23,6 @@ All adapters must pass the full 20-fixture validation suite before merge. See [C
 ## Adapter structure
 
 Each adapter is a single Python or TypeScript file at the root of this repository, accompanied by a test suite and optionally a dedicated README for models that require additional setup.
-
-```
-adapters/
-  your_model_adapter.py       # The adapter itself
-  your_model_adapter_README.md  # Usage instructions (required for licensed models)
-  tests/
-    test_your_model_adapter.py  # Tests using mock model output
-```
 
 ## Bounties
 
