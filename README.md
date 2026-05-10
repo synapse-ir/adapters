@@ -13,6 +13,7 @@ Community adapter collection for the SYNAPSE canonical IR ecosystem. Each adapte
 | [all-MiniLM-L6-v2](all_minilm_adapter.py) | sentence-transformers/all-MiniLM-L6-v2 | embed | general | Python | Apache 2.0 |
 | [BART Large CNN](bart_large_cnn_adapter.py) | facebook/bart-large-cnn | summarize | general | Python | MIT |
 | [FinBERT](finbert_adapter.py) | ProsusAI/finbert | classify | finance | Python | Apache 2.0 |
+| [opus-mt-en-fr](opus_mt_en_fr_adapter.py) | Helsinki-NLP/opus-mt-en-fr | translate | multilingual | Python | Apache 2.0 |
 
 ## Contribute an adapter
 
