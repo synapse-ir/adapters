@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.11", "3.12"]
+        python-version: ["3.11", "3.12", "3.13"]
 
     steps:
       - uses: actions/checkout@v4
@@ -33,16 +33,30 @@ jobs:
 
       - name: Mypy type check
         run: |
-          uv run mypy \
-            ner_bert/ner_bert_adapter.py \
-            ner_clinical/ner_clinical_adapter.py \
-            all_minilm/all_minilm_adapter.py \
-            docling/docling_adapter.py \
-            bart_large_cnn/bart_large_cnn_adapter.py \
-            finbert/finbert_adapter.py \
-            opus_mt_en_fr/opus_mt_en_fr_adapter.py \
-            ms_marco_cross_encoder/ms_marco_cross_encoder_adapter.py \
-            twitter_roberta_sentiment/twitter_roberta_sentiment_adapter.py \
-            facebook_bart_mnli/bart_large_mnli_adapter.py \
-            whisper_large_v3/whisper_large_v3_adapter.py \
-            clip_vit_base_patch32/clip_vit_base_patch32_adapter.py
+          uv run mypy $(find . -name "*_adapter.py" -not -path "./.venv/*" | sort)
+
+      - name: Validate all adapters
+        run: |
+          for adapter_file in $(find . -name "*_adapter.py" -not -path "./.venv/*" | sort); do
+            folder=$(dirname "$adapter_file")
+            module=$(basename "$adapter_file" .py)
+            class_name=$(uv run python -c "
+          import ast, sys
+          tree = ast.parse(open('$adapter_file').read())
+          classes = [n.name for n in ast.walk(tree) if isinstance(n, ast.ClassDef)]
+          adapter_classes = [c for c in classes if c.endswith('Adapter')]
+          print(adapter_classes[0] if adapter_classes else '')
+          ")
+            if [ -n "$class_name" ]; then
+              echo "Validating $class_name from $module"
+              uv run python -c "
+          import sys
+          sys.path.insert(0, '$folder')
+          sys.path.insert(0, '.')
+          from synapse_sdk.testing import AdapterValidator
+          from $module import $class_name
+          AdapterValidator($class_name()).assert_valid()
+          print('  Validator: all rules passed')
+          "
+            fi
+          done
