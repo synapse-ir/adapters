@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: uv sync --all-extras
+
+      - name: Run tests
+        run: uv run pytest --tb=short -q
+
+      - name: Ruff lint
+        run: uv run ruff check .
+
+      - name: Mypy type check
+        run: |
+          uv run mypy \
+            ner_bert/ner_bert_adapter.py \
+            ner_clinical/ner_clinical_adapter.py \
+            all_minilm/all_minilm_adapter.py \
+            docling/docling_adapter.py \
+            bart_large_cnn/bart_large_cnn_adapter.py \
+            finbert/finbert_adapter.py \
+            opus_mt_en_fr/opus_mt_en_fr_adapter.py \
+            ms_marco_cross_encoder/ms_marco_cross_encoder_adapter.py \
+            twitter_roberta_sentiment/twitter_roberta_sentiment_adapter.py \
+            facebook_bart_mnli/bart_large_mnli_adapter.py \
+            whisper_large_v3/whisper_large_v3_adapter.py \
+            clip_vit_base_patch32/clip_vit_base_patch32_adapter.py
