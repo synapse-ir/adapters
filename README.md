@@ -15,6 +15,7 @@ Community adapter collection for the SYNAPSE canonical IR ecosystem. Each adapte
 | [twitter-roberta-sentiment](twitter_roberta_sentiment/twitter_roberta_sentiment_adapter.py) | cardiffnlp/twitter-roberta-base-sentiment-latest | classify | conversational | Python | CC BY 4.0 |
 | [bart-large-mnli](facebook_bart_mnli/bart_large_mnli_adapter.py) | facebook/bart-large-mnli | classify | general | Python | MIT |
 | [whisper-large-v3](whisper_large_v3/whisper_large_v3_adapter.py) | openai/whisper-large-v3 | transcribe | audio, multilingual | Python | Apache 2.0 |
+| [clip-vit-base-patch32](clip_vit_base_patch32/clip_vit_base_patch32_adapter.py) | openai/clip-vit-base-patch32 | classify | multimodal, vision | Python | MIT |
 ## Contribute an adapter
 1. Install the SDK: `pip install synapse-adapter-sdk`
 2. Write your adapter following the [first adapter guide](https://synapse-ir.github.io/adapter-sdk/getting-started/first-adapter/)

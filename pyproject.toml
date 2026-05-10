@@ -10,7 +10,7 @@ dependencies = [
 [tool.uv.sources]
 synapse-adapter-sdk = { path = "../adapter-sdk", editable = true }
 [tool.pytest.ini_options]
-pythonpath = [".", "ner_bert", "ner_clinical", "openai_classifier", "docling", "all_minilm", "bart_large_cnn", "finbert", "opus_mt_en_fr", "ms_marco_cross_encoder", "twitter_roberta_sentiment", "facebook_bart_mnli", "whisper_large_v3"]
+pythonpath = [".", "ner_bert", "ner_clinical", "openai_classifier", "docling", "all_minilm", "bart_large_cnn", "finbert", "opus_mt_en_fr", "ms_marco_cross_encoder", "twitter_roberta_sentiment", "facebook_bart_mnli", "whisper_large_v3", "clip_vit_base_patch32"]
 [tool.mypy]
 ignore_missing_imports = true
 [dependency-groups]
