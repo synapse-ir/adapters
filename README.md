@@ -10,6 +10,7 @@ Community adapter collection for the SYNAPSE canonical IR ecosystem. Each adapte
 | [OpenAI Classifier](openai-classifier.ts) | openai/gpt-4o-mini | classify | general | TypeScript | MIT |
 | [JSL Clinical NER](ner_clinical_adapter.py) | johnsnowlabs/ner_clinical | extract | medical | Python | MIT (adapter) — requires John Snow Labs Healthcare NLP license |
 | [Docling](docling_adapter.py) | docling-project/docling | extract | document, general | Python | MIT |
+| [all-MiniLM-L6-v2](all_minilm_adapter.py) | sentence-transformers/all-MiniLM-L6-v2 | embed | general | Python | Apache 2.0 |
 
 ## Contribute an adapter
 
