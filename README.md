@@ -1,6 +1,6 @@
-ï»¿# SYNAPSE Adapters
+# SYNAPSE Adapters
 
-Community adapter collection for the SYNAPSE canonical IR ecosystem. Each adapter in this repository connects a real model to the ecosystem â€” write it once, interoperate with everything.
+Community adapter collection for the SYNAPSE canonical IR ecosystem. Each adapter in this repository connects a real model to the ecosystem — write it once, interoperate with everything.
 
 ## Available adapters
 
@@ -8,10 +8,11 @@ Community adapter collection for the SYNAPSE canonical IR ecosystem. Each adapte
 |---------|-------|------------|---------|----------|---------|
 | [NER BERT](ner_bert_adapter.py) | dslim/bert-base-NER | extract | general, legal | Python | MIT |
 | [OpenAI Classifier](openai-classifier.ts) | openai/gpt-4o-mini | classify | general | TypeScript | MIT |
-| [JSL Clinical NER](ner_clinical_adapter.py) | johnsnowlabs/ner_clinical | extract | medical | Python | MIT (adapter) â€” requires John Snow Labs Healthcare NLP license |
+| [JSL Clinical NER](ner_clinical_adapter.py) | johnsnowlabs/ner_clinical | extract | medical | Python | MIT (adapter) — requires John Snow Labs Healthcare NLP license |
 | [Docling](docling_adapter.py) | docling-project/docling | extract | document, general | Python | MIT |
 | [all-MiniLM-L6-v2](all_minilm_adapter.py) | sentence-transformers/all-MiniLM-L6-v2 | embed | general | Python | Apache 2.0 |
 | [BART Large CNN](bart_large_cnn_adapter.py) | facebook/bart-large-cnn | summarize | general | Python | MIT |
+| [FinBERT](finbert_adapter.py) | ProsusAI/finbert | classify | finance | Python | Apache 2.0 |
 
 ## Contribute an adapter
 
