@@ -7,16 +7,12 @@ dependencies = [
     "numpy>=2.4.4",
     "synapse-adapter-sdk",
 ]
-
 [tool.uv.sources]
 synapse-adapter-sdk = { path = "../adapter-sdk", editable = true }
-
 [tool.pytest.ini_options]
-pythonpath = ["."]
-
+pythonpath = [".", "ner_bert", "ner_clinical", "openai_classifier", "docling", "all_minilm", "bart_large_cnn", "finbert", "opus_mt_en_fr", "ms_marco_cross_encoder", "twitter_roberta_sentiment"]
 [tool.mypy]
 ignore_missing_imports = true
-
 [dependency-groups]
 dev = [
     "pytest>=9.0.3",
