@@ -6,6 +6,7 @@ Community adapter collection for the SYNAPSE canonical IR ecosystem. Each adapte
 | [NER BERT](ner_bert/ner_bert_adapter.py) | dslim/bert-base-NER | extract | general, legal | Python | MIT |
 | [OpenAI Classifier](openai_classifier/openai-classifier.ts) | openai/gpt-4o-mini | classify | general | TypeScript | MIT |
 | [JSL Clinical NER](ner_clinical/ner_clinical_adapter.py) | johnsnowlabs/ner_clinical | extract | medical | Python | MIT (adapter) � requires John Snow Labs Healthcare NLP license |
+| [ClinicalBERT](clinicalbert/clinicalbert_adapter.py) | medicalai/ClinicalBERT | classify | medical | Python | MIT (adapter) |
 | [Docling](docling/docling_adapter.py) | docling-project/docling | extract | document, general | Python | MIT |
 | [all-MiniLM-L6-v2](all_minilm/all_minilm_adapter.py) | sentence-transformers/all-MiniLM-L6-v2 | embed | general | Python | Apache 2.0 |
 | [BART Large CNN](bart_large_cnn/bart_large_cnn_adapter.py) | facebook/bart-large-cnn | summarize | general | Python | MIT |
