@@ -8,7 +8,6 @@ is listed as a Founding Contributor in this repository permanently.
 | Model | Task | Domain | Notes | Difficulty |
 |-------|------|--------|-------|------------|
 | [deepset/roberta-base-squad2](https://huggingface.co/deepset/roberta-base-squad2) | extract | general | Question answering / reading comprehension | Beginner |
-| [medicalai/ClinicalBERT](https://huggingface.co/medicalai/ClinicalBERT) | classify | medical | Clinical text classification | Beginner |
 | [microsoft/codebert-base](https://huggingface.co/microsoft/codebert-base) | embed | code | Code understanding and search | Intermediate |
 | [sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) | embed | multilingual | Multilingual sentence embeddings | Beginner |
 | [google/flan-t5-base](https://huggingface.co/google/flan-t5-base) | summarize | general | Instruction-tuned summarization | Intermediate |
@@ -35,8 +34,14 @@ Founding Contributor credit is permanent and listed in this file once your PR me
 
 ## Claimed bounties
 
-None yet � all bounties above are open.
+None yet — all bounties above are open.
 
 ## Completed bounties
 
-None yet.
+| Model | Contributor | PR |
+|-------|-------------|-----|
+| [medicalai/ClinicalBERT](https://huggingface.co/medicalai/ClinicalBERT) | [@syedwaleedhyder](https://github.com/syedwaleedhyder) | [#2](https://github.com/synapse-ir/adapters/pull/2) |
+
+## Founding Contributors
+
+- [@syedwaleedhyder](https://github.com/syedwaleedhyder) — ClinicalBERT adapter
