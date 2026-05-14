@@ -14,7 +14,16 @@ jobs:
         python-version: ["3.11", "3.12", "3.13"]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out adapters repo
+        uses: actions/checkout@v4
+        with:
+          path: adapters
+
+      - name: Check out adapter-sdk repo
+        uses: actions/checkout@v4
+        with:
+          repository: synapse-ir/adapter-sdk
+          path: adapter-sdk
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -23,19 +32,24 @@ jobs:
         run: uv python install ${{ matrix.python-version }}
 
       - name: Install dependencies
+        working-directory: adapters
         run: uv sync --all-extras
 
       - name: Run tests
+        working-directory: adapters
         run: uv run pytest --tb=short -q
 
       - name: Ruff lint
+        working-directory: adapters
         run: uv run ruff check .
 
       - name: Mypy type check
+        working-directory: adapters
         run: |
           uv run mypy $(find . -name "*_adapter.py" -not -path "./.venv/*" | sort)
 
       - name: Validate all adapters
+        working-directory: adapters
         run: |
           for adapter_file in $(find . -name "*_adapter.py" -not -path "./.venv/*" | sort); do
             folder=$(dirname "$adapter_file")
