@@ -229,16 +229,19 @@ def test_egress_payload_labels_is_list_of_length_one() -> None:
 
 def test_egress_payload_labels_item_is_classification() -> None:
     out = FinbertAdapter().egress(_mock_output(), _make_ir(), latency_ms=100)
+    assert out.payload.labels is not None
     assert isinstance(out.payload.labels[0], Classification)
 
 
 def test_egress_payload_labels_first_label_matches_mock_output() -> None:
     out = FinbertAdapter().egress(_mock_output("negative", 0.75), _make_ir(), latency_ms=100)
+    assert out.payload.labels is not None
     assert out.payload.labels[0].label == "negative"
 
 
 def test_egress_payload_labels_first_score_matches_mock_output() -> None:
     out = FinbertAdapter().egress(_mock_output("neutral", 0.60), _make_ir(), latency_ms=100)
+    assert out.payload.labels is not None
     assert out.payload.labels[0].score == pytest.approx(0.60)
 
 
